@@ -1,0 +1,4 @@
+<h1> The <%= @album.name.to_s %>!</h1>
+
+<%= render "shared/options", value: 'album', uplink: band_url(@album.band),
+    downlink: '', editlink: new_album_url ,downlist: @album.tracks  %>

@@ -1,0 +1,21 @@
+<h1> Add a band! </h1>
+
+<ul>
+  <% @band.errors.full_messages.each do |err_msg| %>
+    <li> <%= err_msg %> </li>
+  <% end  %>
+</ul>
+<br>
+<form action="<%= bands_url %>" method= "POST">
+  <input type="hidden"
+           name="authenticity_token"
+           value="<%= form_authenticity_token %>">
+
+  <label> Band Name </label>
+  <input type="text"
+    name="band[name]"
+    id='band_name'>
+  <br>
+  <br>
+  <input type="submit" value="Add Band!">
+</form>

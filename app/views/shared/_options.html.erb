@@ -1,0 +1,28 @@
+<table>
+  <tr>
+    <td> <a href="<%= "#{value}/edit" %>"> Edit <%= "#{value}" %></a> </td>
+  </tr>
+
+  <tr>
+    <td> <a href="<%= "#{value}/destroy" %>"> Delete <%= "#{value}" %></a> </td>
+  </tr>
+
+  <tr>
+    <td id = 'uplink'> <a href="<%= uplink %>"> Go to <%= "#{uplink}" %></a> </td>
+  </tr>
+
+  <tr>
+    <td id = 'editlink'> <a href="<%= editlink %>"> Add to List </a> </td>
+  </tr>
+
+</table>
+
+  <br>
+  <% downlist.each do |list_item| %>
+  <li> <a href = '#' > <%= "#{list_item.name}" %></a> </li>
+  <% end  %>
+  </ul>
+
+
+
+<!%= "#{url_for(list_item)}" %>

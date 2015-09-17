@@ -1,0 +1,30 @@
+<h1> Sign Up! </h1>
+<h3> Or, <%= link_to 'Sign In', new_session_url %> </h3>
+
+
+
+<ul>
+  <% @user.errors.full_messages.each do |err_msg| %>
+    <li> <%= err_msg %>
+  <% end  %>
+  <br>
+<form action="<%= users_url %>" method= "POST">
+  <input type="hidden"
+           name="authenticity_token"
+           value="<%= form_authenticity_token %>">
+
+  <label> Email </label>
+  <input type="text"
+    name="user[email]"
+    id='user_email'
+    value="<%= @user.email %>">
+  <br>
+  <br>
+
+  <label> Password </label>
+  <input type="text" name="user[password]" id='user_email
+  '>
+  <br>
+  <br>
+  <input type="submit" value="Create User!">
+</form>

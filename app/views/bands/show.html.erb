@@ -1,0 +1,4 @@
+<h1> The <%=['amazing', 'incredible', 'mega talented', 'unmatchable', 'prodigious', 'legendary'][rand(6)] + ' ' + @band.name.to_s %>!</h1>
+
+<%= render "shared/options", value: 'band', uplink: bands_url,
+    downlink: '', editlink: new_band_url , downlist: @band.albums  %>

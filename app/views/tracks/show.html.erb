@@ -1,0 +1,8 @@
+<h1> The <%= @track.name.to_s %>!</h1>
+
+<%= render "shared/options", value: 'track', uplink: album_url(@track.album),
+    downlink: '', editlink: new_track_url ,downlist: [] %>
+
+<h3> Lyrics </h3>
+
+<pre> <%= @track.ugly_lyrics %></pre>

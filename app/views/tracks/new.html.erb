@@ -1,0 +1,41 @@
+<h1> Add a Track! </h1>
+
+<ul>
+  <% @track.errors.full_messages.each do |err_msg| %>
+    <li> <%= err_msg %> </li>
+  <% end  %>
+</ul>
+<br>
+<form action="<%= tracks_url %>" method= "POST">
+  <input type="hidden"
+           name="authenticity_token"
+           value="<%= form_authenticity_token %>">
+
+  <label> Track Name </label>
+  <input type="text"
+    name="track[name]"
+    id='track_name'>
+  <br>
+  <br>
+
+  <label for="album_name">Select Album</label>
+  <!-- dropdown -->
+  <select name="track[album_id]" id="album_name">
+    <!-- `brown`, if selected, is the value that will be submitted to
+         the server; user is displayed "Brown" as the choice -->
+    <% Album.all.each do |album| %>
+      <option value= "<%= "#{album.id}" %>"> <%=album.name %></option>
+    <% end  %>
+  </select>
+  <br>
+  <br>
+
+  <input type="radio" name="track[rec_type]" id="track_regular" value="Regular">
+  <label for="track_regular">Regular Track</label>
+
+  <input type="radio" name="track[rec_type]" id="track_rec_studio" value="bonus">
+  <label for="track_rec_studio">Bonus Track</label>
+  <br>
+  <br>
+  <input type="submit" value="Add Track!">
+</form>
