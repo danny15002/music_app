@@ -30,7 +30,9 @@ class TracksController < ApplicationController
   end
 
   def update
-
+    @track = Track.find(params[:id])
+    Track.destroy(@track)
+    redirect_to bands_url
   end
 
   def destroy
