@@ -20,10 +20,7 @@
 
   <br>
   <% downlist.each do |list_item| %>
-  <li> <a href = '#' > <%= "#{list_item.name}" %></a> </li>
+  <li> <a href = "<%= "#{url_for(list_item)}" %>" > <%= "#{list_item.name}" %></a> </li>
   <% end  %>
   </ul>
 </div>
-
-
-<!%= "#{url_for(list_item)}" %>
