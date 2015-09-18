@@ -12,7 +12,9 @@ class AlbumsController < ApplicationController
   end
 
   def create
+    @album = Album.create(album_params)
 
+    redirect_to album_url(@album)
   end
 
   def new
@@ -33,5 +35,10 @@ class AlbumsController < ApplicationController
 
   def destroy
 
+  end
+
+  private
+  def album_params
+    params.require(:album).permit(:band_id, :name, :rec_type)
   end
 end

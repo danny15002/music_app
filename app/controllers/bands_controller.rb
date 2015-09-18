@@ -12,7 +12,9 @@ class BandsController < ApplicationController
   end
 
   def create
+    @band = Band.create(band_params)
 
+    redirect_to band_url(@band)
   end
 
   def new
@@ -34,4 +36,11 @@ class BandsController < ApplicationController
   def destroy
 
   end
+
+  private
+  def band_params
+    params.require(:band).permit(:name)
+  end
+
+
 end

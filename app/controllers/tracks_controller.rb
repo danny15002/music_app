@@ -12,13 +12,15 @@ class TracksController < ApplicationController
   end
 
   def create
+    @track = Track.create(track_params)
 
+    redirect_to track_url(@track)
   end
 
   def new
     @track = Track.new
   end
-  
+
   def edit
 
   end
@@ -33,5 +35,10 @@ class TracksController < ApplicationController
 
   def destroy
 
+  end
+
+  private
+  def track_params
+    params.require(:track).permit(:album_id, :name, :track_type)
   end
 end
